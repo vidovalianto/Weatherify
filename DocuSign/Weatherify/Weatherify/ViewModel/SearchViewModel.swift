@@ -14,13 +14,8 @@ public class SearchViewModel {
     public static let shared = SearchViewModel()
     private let coreDataManager = CoreDataManager.shared
     private let networkManager = NetworkManager.shared
-    private var cancellable: AnyCancellable?
 
     private init() {}
-
-    deinit {
-        cancellable?.cancel()
-    }
 
     @Published
     public var respondModel: RespondModel = RespondModel()

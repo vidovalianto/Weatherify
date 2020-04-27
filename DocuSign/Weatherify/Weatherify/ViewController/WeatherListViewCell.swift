@@ -48,7 +48,7 @@ final class WeatherListViewCell: UITableViewCell {
     private let dayLbl: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
-        lbl.font = UIFont.boldSystemFont(ofSize: 16)
+        lbl.font = appFont(section: .footer)
         lbl.textAlignment = .left
         return lbl
     }()
@@ -56,6 +56,7 @@ final class WeatherListViewCell: UITableViewCell {
     private let tempLbl: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
+        lbl.font = appFont(section: .barTitle)
         lbl.font = UIFont.monospacedDigitSystemFont(ofSize: 16,
                                                     weight: .medium)
         lbl.textAlignment = .left
@@ -72,7 +73,7 @@ final class WeatherListViewCell: UITableViewCell {
     private let descLbl: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
-        lbl.font = UIFont.preferredFont(forTextStyle: .body)
+        lbl.font = appFont(section: .desc)
         lbl.textAlignment = .left
         return lbl
     }()
@@ -108,7 +109,6 @@ final class WeatherListViewCell: UITableViewCell {
         super.prepareForReuse()
         backgroundImage.image = nil
         backgroundImage.alpha = 0.0
-
         animator?.stopAnimation(true)
         cancellable?.cancel()
     }

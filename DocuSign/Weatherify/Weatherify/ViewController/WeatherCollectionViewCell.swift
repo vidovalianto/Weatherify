@@ -36,6 +36,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
     private lazy var cityLbl: UILabel = {
         let label = UILabel()
+        label.font = appFont(section: .title)
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -43,6 +44,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
     private lazy var highTempLbl: UILabel = {
         let label = UILabel()
+        label.font = appFont(section: .subTitle)
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -50,6 +52,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
     private lazy var lowTempLbl: UILabel = {
         let label = UILabel()
+        label.font = appFont(section: .subTitle)
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -57,6 +60,7 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
     private lazy var cloudLbl: UILabel = {
         let label = UILabel()
+        label.font = appFont(section: .subTitle)
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -64,13 +68,14 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
     private lazy var windLbl: UILabel = {
         let label = UILabel()
+        label.font = appFont(section: .subTitle)
         label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     private lazy var tempStackView: UIStackView = {
-        let stackView = UIStackView(.vertical, subviews: [highTempLbl,lowTempLbl], alignment: .leading)
+        let stackView = UIStackView(.vertical, subviews: [highTempLbl, lowTempLbl], alignment: .leading)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -159,10 +164,10 @@ class WeatherCollectionViewCell: UICollectionViewCell {
 
     private func configureData() {
 
-        self.cloudLbl.text = String(weather.cloud.all)
-        self.windLbl.text = String(weather.wind.speed)
-        self.highTempLbl.text = String(weather.main.tempMax)
-        self.lowTempLbl.text = String(weather.main.tempMin)
+        self.cloudLbl.text = "C: " + String(weather.cloud.all)
+        self.windLbl.text = "W: " + String(weather.wind.speed)
+        self.highTempLbl.text = "H: " + String(weather.main.tempMax)
+        self.lowTempLbl.text = "L: " + String(weather.main.tempMin)
 
         self.loadImage(id: self.weather.weathers.first?.icon ?? "").sink { [unowned self] image in
             if image != nil {

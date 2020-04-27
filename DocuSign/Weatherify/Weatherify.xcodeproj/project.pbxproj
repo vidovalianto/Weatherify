@@ -39,6 +39,7 @@
 		26E1A56524575BEF00B688DD /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E1A56424575BEF00B688DD /* SettingViewController.swift */; };
 		26E1A56724575C3000B688DD /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E1A56624575C3000B688DD /* SettingViewModel.swift */; };
 		26E1A56A245762CB00B688DD /* UIViewController+presentOnRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E1A569245762CB00B688DD /* UIViewController+presentOnRoot.swift */; };
+		26E1A56C24576C4D00B688DD /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E1A56B24576C4D00B688DD /* Theme.swift */; };
 		26E5C24224455CB000A164A3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5C24124455CB000A164A3 /* DashboardViewController.swift */; };
 		26E5C24424455D2800A164A3 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5C24324455D2800A164A3 /* DashboardViewModel.swift */; };
 		26E5C24624455D8700A164A3 /* WeatherCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5C24524455D8700A164A3 /* WeatherCardViewController.swift */; };
@@ -102,6 +103,7 @@
 		26E1A56424575BEF00B688DD /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		26E1A56624575C3000B688DD /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		26E1A569245762CB00B688DD /* UIViewController+presentOnRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentOnRoot.swift"; sourceTree = "<group>"; };
+		26E1A56B24576C4D00B688DD /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		26E5C24124455CB000A164A3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		26E5C24324455D2800A164A3 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		26E5C24524455D8700A164A3 /* WeatherCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCardViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				264D63EE24401666000D1F93 /* NetworkManager.swift */,
 				26AC12EE24405A5400C0F58F /* ImageCachingManager.swift */,
 				26E1A5622456507900B688DD /* CoreDataManager.swift */,
+				26E1A56B24576C4D00B688DD /* Theme.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				26AC12EF24405A5400C0F58F /* ImageCachingManager.swift in Sources */,
 				2612F7E424402EFA0089B20D /* Coord.swift in Sources */,
 				26AC12E924404CC600C0F58F /* RespondModel.swift in Sources */,
+				26E1A56C24576C4D00B688DD /* Theme.swift in Sources */,
 				26E1A5612456272600B688DD /* WeatherCollectionViewCell.swift in Sources */,
 				2612F7E224402CAB0089B20D /* RespondWeather.swift in Sources */,
 				264D63B724401296000D1F93 /* AppDelegate.swift in Sources */,

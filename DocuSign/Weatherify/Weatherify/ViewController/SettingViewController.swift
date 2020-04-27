@@ -52,9 +52,10 @@ class SettingViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
+                                              constant: 20),
             tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            tableView.heightAnchor.constraint(equalToConstant: CGFloat(settingVM.fetchCities().count) * rowHeight)
+            tableView.heightAnchor.constraint(equalToConstant: CGFloat(settingVM.fetchCities().count+2) * rowHeight)
         ])
 
         self.view.addSubview(mainView)
@@ -121,6 +122,7 @@ extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId)!
         cell.textLabel?.text = settingVM.getCity(for: indexPath.row)
+        cell.textLabel?.font = appFont(section: .desc)
         cell.textLabel?.tag = indexPath.row
         return cell
     }
