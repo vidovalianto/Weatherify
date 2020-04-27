@@ -18,4 +18,16 @@ extension String {
         df.dateFormat = "EEEE"
         return df.string(from: dateFormatted)
     }
+
+    func dateFormat() -> Date {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+        guard let dateFormatted = df.date(from: self) else { return Date()}
+
+        df.dateFormat = "EEEE"
+        let date = df.string(from: dateFormatted)
+
+        return df.date(from: date) ?? Date()
+    }
 }

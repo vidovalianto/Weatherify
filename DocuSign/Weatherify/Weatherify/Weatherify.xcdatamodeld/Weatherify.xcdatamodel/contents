@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="FavoriteCities" representedClassName="FavoriteCities" syncable="YES" codeGenerationType="class">
+        <relationship name="favoriteCity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FavoriteCity" inverseName="favoriteCities" inverseEntity="FavoriteCity"/>
+    </entity>
+    <entity name="FavoriteCity" representedClassName="FavoriteCity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="favoriteCities" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavoriteCities" inverseName="favoriteCity" inverseEntity="FavoriteCities"/>
+    </entity>
+    <elements>
+        <element name="FavoriteCities" positionX="-399.90625" positionY="4.96484375" width="128" height="64"/>
+        <element name="FavoriteCity" positionX="-54" positionY="-18" width="128" height="79"/>
+    </elements>
 </model>

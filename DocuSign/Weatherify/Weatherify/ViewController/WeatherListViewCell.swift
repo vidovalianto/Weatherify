@@ -40,9 +40,7 @@ final class WeatherListViewCell: UITableViewCell {
     }
 
     private let cardView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 10
-        view.backgroundColor = .tertiarySystemFill
+        let view = CardView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -102,6 +100,8 @@ final class WeatherListViewCell: UITableViewCell {
     deinit {
         animator?.stopAnimation(true)
         animator?.finishAnimation(at: .current)
+        cancellable?.cancel()
+        
     }
 
     override func prepareForReuse() {
@@ -113,14 +113,6 @@ final class WeatherListViewCell: UITableViewCell {
         cancellable?.cancel()
     }
 
-    public func configureData(id: String) {
-        cancellable = loadImage(id: id).sink { [unowned self] image in
-            DispatchQueue.main.async {
-                self.showImage(image: image)
-            }
-        }
-    }
-
     public func configureTemp(temp: String) {
         self.tempLbl.text = temp
     }
@@ -129,27 +121,6 @@ final class WeatherListViewCell: UITableViewCell {
         backgroundImage.alpha = 0.0
         animator?.stopAnimation(false)
         backgroundImage.image = image
-//        animator = UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.001,
-//                                                                  delay: 0,
-//                                                                  options: .curveLinear,
-//                                                                  animations: {
-//            self.backgroundImage.alpha = 1.0
-//        })
-//
-////        animator?.fractionComplete = 0.25
-////        animator?.stopAnimation(true)
-////        animator?.finishAnimation(at: .current)
-//        animator?.fractionComplete = 0.25
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-////            self.animator?.stopAnimation(true)
-////            self.animator?.finishAnimation(at: .current)
-//            self.animator?.stopAnimation(true)
-//            if let animator = self.animator, animator.state != .inactive {
-//                animator.finishAnimation(at: .current)
-//            }
-//        }
-
         self.backgroundImage.alpha = 1.0
     }
 
