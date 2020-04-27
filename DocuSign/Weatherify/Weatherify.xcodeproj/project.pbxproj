@@ -36,6 +36,9 @@
 		26E1A55F245604A700B688DD /* WeatherStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E1A55E245604A700B688DD /* WeatherStoryViewController.swift */; };
 		26E1A5612456272600B688DD /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E1A5602456272600B688DD /* WeatherCollectionViewCell.swift */; };
 		26E1A5632456507A00B688DD /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E1A5622456507900B688DD /* CoreDataManager.swift */; };
+		26E1A56524575BEF00B688DD /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E1A56424575BEF00B688DD /* SettingViewController.swift */; };
+		26E1A56724575C3000B688DD /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E1A56624575C3000B688DD /* SettingViewModel.swift */; };
+		26E1A56A245762CB00B688DD /* UIViewController+presentOnRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E1A569245762CB00B688DD /* UIViewController+presentOnRoot.swift */; };
 		26E5C24224455CB000A164A3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5C24124455CB000A164A3 /* DashboardViewController.swift */; };
 		26E5C24424455D2800A164A3 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5C24324455D2800A164A3 /* DashboardViewModel.swift */; };
 		26E5C24624455D8700A164A3 /* WeatherCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5C24524455D8700A164A3 /* WeatherCardViewController.swift */; };
@@ -96,6 +99,9 @@
 		26E1A55E245604A700B688DD /* WeatherStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStoryViewController.swift; sourceTree = "<group>"; };
 		26E1A5602456272600B688DD /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		26E1A5622456507900B688DD /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		26E1A56424575BEF00B688DD /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		26E1A56624575C3000B688DD /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		26E1A569245762CB00B688DD /* UIViewController+presentOnRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentOnRoot.swift"; sourceTree = "<group>"; };
 		26E5C24124455CB000A164A3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		26E5C24324455D2800A164A3 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		26E5C24524455D8700A164A3 /* WeatherCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCardViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 			children = (
 				264D63B624401296000D1F93 /* AppDelegate.swift */,
 				264D63B824401296000D1F93 /* SceneDelegate.swift */,
+				26E1A568245762A700B688DD /* Manager */,
 				26E5C24724455E3F00A164A3 /* View */,
 				264D63F02440166B000D1F93 /* Utility */,
 				264D63EB244014CB000D1F93 /* Model */,
@@ -195,6 +202,7 @@
 				26E1A55E245604A700B688DD /* WeatherStoryViewController.swift */,
 				26E1A5602456272600B688DD /* WeatherCollectionViewCell.swift */,
 				26E5C24124455CB000A164A3 /* DashboardViewController.swift */,
+				26E1A56424575BEF00B688DD /* SettingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -204,7 +212,7 @@
 			children = (
 				264D63EC2440161D000D1F93 /* SearchViewModel.swift */,
 				26E5C24324455D2800A164A3 /* DashboardViewModel.swift */,
-				26E1A5622456507900B688DD /* CoreDataManager.swift */,
+				26E1A56624575C3000B688DD /* SettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -229,13 +237,22 @@
 		264D63F02440166B000D1F93 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				264D63EE24401666000D1F93 /* NetworkManager.swift */,
-				26AC12EE24405A5400C0F58F /* ImageCachingManager.swift */,
 				26AC12F22440F77000C0F58F /* String+DateFormatter.swift */,
 				26AC12F4244104FC00C0F58F /* UIImage+ResizeImage.swift */,
 				26E5C2482445603800A164A3 /* UIStackView+template.swift */,
+				26E1A569245762CB00B688DD /* UIViewController+presentOnRoot.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		26E1A568245762A700B688DD /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				264D63EE24401666000D1F93 /* NetworkManager.swift */,
+				26AC12EE24405A5400C0F58F /* ImageCachingManager.swift */,
+				26E1A5622456507900B688DD /* CoreDataManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		26E5C24724455E3F00A164A3 /* View */ = {
@@ -378,10 +395,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2612F7E624402F250089B20D /* Main.swift in Sources */,
+				26E1A56724575C3000B688DD /* SettingViewModel.swift in Sources */,
 				26E1A55F245604A700B688DD /* WeatherStoryViewController.swift in Sources */,
 				2612F7EA24402F4A0089B20D /* Cloud.swift in Sources */,
 				26E5C2492445603800A164A3 /* UIStackView+template.swift in Sources */,
 				264D63EF24401666000D1F93 /* NetworkManager.swift in Sources */,
+				26E1A56524575BEF00B688DD /* SettingViewController.swift in Sources */,
 				264D63BB24401296000D1F93 /* SearchViewController.swift in Sources */,
 				264D63ED2440161D000D1F93 /* SearchViewModel.swift in Sources */,
 				26AC12E724404ABA00C0F58F /* Rain.swift in Sources */,
@@ -400,6 +419,7 @@
 				26AC12E12440417E00C0F58F /* SearchBarController.swift in Sources */,
 				264D63C124401296000D1F93 /* Weatherify.xcdatamodeld in Sources */,
 				26E5C24B2445619300A164A3 /* CardView.swift in Sources */,
+				26E1A56A245762CB00B688DD /* UIViewController+presentOnRoot.swift in Sources */,
 				2612F7E0244022C20089B20D /* Weather.swift in Sources */,
 				26E5C24224455CB000A164A3 /* DashboardViewController.swift in Sources */,
 				26E1A5632456507A00B688DD /* CoreDataManager.swift in Sources */,

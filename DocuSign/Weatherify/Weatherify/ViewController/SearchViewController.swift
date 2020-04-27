@@ -90,9 +90,9 @@ class SearchViewController: UIViewController {
 
     private func initSearchBar() {
         self.searchController = searchBarController
-
         self.searchController.searchBar.delegate = self
-
+        self.searchController.searchBar.becomeFirstResponder()
+        self.searchController.obscuresBackgroundDuringPresentation = false
         self.navigationItem.searchController = self.searchController
     }
 
@@ -145,40 +145,10 @@ class SearchViewController: UIViewController {
     }
 
     private func save(name: String) {
-        if CoreDataManager.shared.cities.contains(name) || name.trimmingCharacters(in: .whitespaces).isEmpty { return }
-
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
-
-        // 1
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
-
-        // 2
-        let entity =
-            NSEntityDescription.entity(forEntityName: "FavoriteCity",
-                                       in: managedContext)!
-
-        let city = NSManagedObject(entity: entity,
-                                   insertInto: managedContext)
-
-        // 3
-        city.setValue(name, forKeyPath: "name")
-
-        // 4
-        do {
-            try managedContext.save()
-            cities.append(city)
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
-
-        CoreDataManager.shared.fetchCoreData()
+        self.searchVM.saveCity(name: name)
     }
 
-    func parseAddress(selectedItem:MKPlacemark) -> String {
+    func parseAddress(selectedItem: MKPlacemark) -> String {
         let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
         let comma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil) && (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? ", " : ""
         let secondSpace = (selectedItem.subAdministrativeArea != nil && selectedItem.administrativeArea != nil) ? " " : ""
@@ -195,7 +165,7 @@ class SearchViewController: UIViewController {
         return addressLine
     }
 
-    func getCity(from selectedItem:MKPlacemark) -> String {
+    func getCity(from selectedItem: MKPlacemark) -> String {
         return selectedItem.locality ?? selectedItem.subAdministrativeArea ?? selectedItem.administrativeArea ?? selectedItem.title ?? self.searchBarController.searchBar.text!
     }
 }

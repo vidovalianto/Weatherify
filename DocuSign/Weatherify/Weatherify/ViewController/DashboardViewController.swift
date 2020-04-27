@@ -78,8 +78,11 @@ public class DashboardViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-
         })
+
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+        target: self,
+        action: #selector(self.editWeather))
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                                  target: self,
@@ -110,7 +113,12 @@ public class DashboardViewController: UIViewController {
         let vc = SearchViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+
+    @objc
+    private func editWeather() {
+        let settingVC = SettingViewController()
+        self.presentOnRoot(with: settingVC)
+    }
 }
 
 extension DashboardViewController: UITableViewDataSource {
@@ -129,3 +137,4 @@ extension DashboardViewController: UITableViewDataSource {
         return WeatherListViewCell.cellSize
     }
 }
+

@@ -25,7 +25,7 @@ public class DashboardViewModel {
     private init() {
         cancellable = coreDataManager.$cities.sink(receiveValue: { self.cities = $0
             })
-        cities.forEach({ self.locationQuery(city: $0) })
+        self.locationQuery(city: cities.first ?? cities.last ?? "")
     }
 
     deinit {

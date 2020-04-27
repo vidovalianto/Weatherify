@@ -14,15 +14,15 @@ import UIKit
 public class SearchBarController: UISearchController {
     private let searchVM = SearchViewModel.shared
     private var cancellable: AnyCancellable?
-    
+
     private let searchCompleter = MKLocalSearchCompleter()
     
-    
+
     private var searchResults = [MKLocalSearchCompletion]()
-    
+
     @Published
     public var matchingItems: [MKMapItem] = []
-    
+
     override
     public func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ public class SearchBarController: UISearchController {
         self.searchBar.showsSearchResultsButton = true
         self.searchCompleter.delegate = self
     }
-    
+
     deinit {
         cancellable?.cancel()
     }
